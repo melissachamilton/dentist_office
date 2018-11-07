@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :api do
+    resources :users do
+      resources :appointments do
+      resources :results
+      end
+end
+  end
+  
+  namespace :api do
+    resources :appointments do
+      resources :providers 
+  end
+end
+
 end
