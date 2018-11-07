@@ -11,7 +11,7 @@ export default class LandingPage extends Component {
   }
 
   fetchUsers= async () => {
-    const response = await axios.get("/api/users");
+    const response = await axios.get("/users");
     this.setState({ users: response.data });
   };
 
