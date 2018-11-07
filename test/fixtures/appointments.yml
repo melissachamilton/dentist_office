@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Date: MyString
-  Time: MyString
-  Service: MyString
-  Provider: one
+  date: MyString
+  time: MyString
+  service: MyString
+  users: one
 
 two:
-  Date: MyString
-  Time: MyString
-  Service: MyString
-  Provider: two
+  date: MyString
+  time: MyString
+  service: MyString
+  users: two

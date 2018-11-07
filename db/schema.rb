@@ -16,29 +16,31 @@ ActiveRecord::Schema.define(version: 2018_11_05_224223) do
   enable_extension "plpgsql"
 
   create_table "appointments", force: :cascade do |t|
-    t.date "Date"
-    t.time "Time"
-    t.string "Service"
+    t.date "date"
+    t.time "time"
+    t.string "service"
+    t.bigint "user_id"
+    t.bigint "provider_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_appointments_on_provider_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "providers", force: :cascade do |t|
-    t.string "First_Name"
-    t.string "Last_Name"
-    t.string "Title"
-    t.string "Role"
-    t.bigint "appointment_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "title"
+    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["appointment_id"], name: "index_providers_on_appointment_id"
   end
 
   create_table "results", force: :cascade do |t|
-    t.string "Type"
-    t.string "Title"
-    t.string "Image_url"
-    t.string "Description"
+    t.string "category"
+    t.string "title"
+    t.string "image_url"
+    t.string "description"
     t.bigint "appointment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,14 +48,15 @@ ActiveRecord::Schema.define(version: 2018_11_05_224223) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "First_Name"
-    t.string "Last_Name"
-    t.string "Address"
-    t.string "Insurance"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "insurance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "providers", "appointments"
+  add_foreign_key "appointments", "providers"
+  add_foreign_key "appointments", "users"
   add_foreign_key "results", "appointments"
 end
