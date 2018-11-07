@@ -1,5 +1,5 @@
 {
-  "name": "Dentist Office",
+  "name": "dentist_office",
   "engines": {
     "node": "9.9.0"
   },
