@@ -1,11 +1,32 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 export default class LandingPage extends Component {
-  render() {
-    return (
-      <div>
-        "Hello World"
-      </div>
-    )
+  state = {
+    users: []
+  };
+
+  async componentDidMount() {
+    await this.fetchUsers();
   }
+
+  fetchUsers= async () => {
+    const response = await axios.get("/api/users");
+    this.setState({ users: response.data });
+  };
+
+  render() {
+    const allUsers = this.state.users.map ((users, i) => {
+    return (
+      <div> {allUsers} </div>
+
+      );
+    })
+
+    return (
+      <p> "Works" </p>
+      
+      
+    );
+    }
 }
