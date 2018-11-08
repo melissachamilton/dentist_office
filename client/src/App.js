@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import LandingPage from './components/LandingPage';
 import SingleUser from './components/SingleUser';
+import LandingPage from './components/LandingPage';
+import NewUser from './components/NewUser';
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/users" component={NewUser} />
           <Route exact path="/users/:id" component={SingleUser} />
         </Switch>
       </Router>

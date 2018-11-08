@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component, } from 'react'
+import {Link} from 'react-router-dom' 
 import axios from 'axios'
 
 
@@ -11,39 +12,39 @@ export default class SingleUser extends Component {
   async componentDidMount() {
     const userId = this.props.match.params.id
     const user = await this.fetchUsers(userId)
-    // const appointments = await this.fetchAppointments(userId)
+    const appointments = await this.fetchAppointments(userId)
 
-    this.setState({ user })
+    this.setState({ user, appointments })
 
   }
 
   fetchUsers = async (id) => {
     const response = await axios.get(`/api/users/${id}`)
-    { console.log(response.data) }
     return response.data
 
   }
-  // fetchAppointments = async (id) => {
-  //   const response = await axios.get(`/api/users/${id}/appointments`)
-  //   {console.log (response)}
-  //   return response.data
-  //   { console.log("This is appointments response") }
-  // }
+  fetchAppointments = async (id) => {
+    const response = await axios.get(`/api/users/${id}/appointments`)
+    return response.data
+  }
 
   render() {
-    // const user = this.state.user
-    // const appointments = this.state.user.map((appointments, i) => {
-    //   return (
-    //     <div key={i}>
-    //       <div>{appointments.date}</div>
-    //     </div>
-    //   )
-    // })
-    return (
-      <div>
-        {/* {appointments} */}
+    const username = this.state.user
+    const appointments = this.state.appointments.map((appointments, i) => {
 
-      </div>
+      return (
+        <div key={i}>
+       <div> {appointments.date}</div>
+       {console.log (appointments.date)}
+       <Link to="/users/:id"><h1>Delete</h1></Link>
+       <div>{username.first_name}</div>
+        </div>
+      )
+})
+      
+    return (
+
+      appointments 
     )
   }
 }

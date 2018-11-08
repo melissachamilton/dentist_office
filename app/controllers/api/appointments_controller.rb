@@ -11,20 +11,20 @@ class Api::AppointmentsController < ApplicationController
   end
 
   def create
-    @city = City.find(params[:city_id])
-    @city_post = @city.posts.create(city_post_params)
-    render json: @city_post
+    @user = User.find(params[:user_id])
+    @appointment = @user.appointments.create(appointment_params)
+    render json: @appointment
   end
 
   def update
-    @city = City.find(params[:city_id])
-    @city_post = @city.posts.find(params[:id]).update(city_post_params)
-    render json: @city_post
+    @user = User.find(params[:user_id])
+    @appointment = @user.appointments.find(params[:id]).update(appointment_params)
+    render json: @appointment
   end
 
   def destroy
-    @city = City.find(params[:city_id])
-    @city_post = @city.posts.find(params[:id]).destroy
+    @user = User.find(params[:user_id])
+    @appointment = @user.appointments.find(params[:id]).destroy
     render status: 200
   end
 
@@ -32,8 +32,8 @@ class Api::AppointmentsController < ApplicationController
 
   private
 
-  def city_post_params
-    params.require(:city_post).permit(:title, :content)
+  def appointment_params
+    params.require(:appointment).permit(:date, :time)
   end
 
 end
