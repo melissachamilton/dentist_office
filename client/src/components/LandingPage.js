@@ -7,26 +7,30 @@ export default class LandingPage extends Component {
   };
 
   async componentDidMount() {
-    await this.fetchUsers();
+    await this.fetchUsers()
   }
 
   fetchUsers= async () => {
-    const response = await axios.get("/users");
+    const response = await axios.get("/api/users");
     this.setState({ users: response.data });
   };
 
   render() {
     const allUsers = this.state.users.map ((users, i) => {
     return (
-      <div> {allUsers} </div>
+
+      <div key={i}>
+        <div>{users.first_name}</div>
+        {console.log (users.first_name)}
+       </div>
 
       );
     })
 
     return (
-      <p> "Works" </p>
-      
-      
+      <div>
+        {allUsers}
+      </div>
     );
     }
 }
