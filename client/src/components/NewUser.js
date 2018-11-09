@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 const FormDiv = styled.div`
@@ -12,42 +13,38 @@ flex-direction: column;
 
 export default class NewUser extends Component {
     state = {
-        user: {},
-        newUser: {}
+        newUser: {
+          first_name: '',
+          last_name: '',
+          address: '',
+          insurance: ''
+        },
+        redirect: false
     }
 
-    async componentDidMount() {
-        const userId = this.props.match.params.id
-        const user = await this.fetchUser(userId)
-
-        this.setState({ user })
-    }
-
-    fetchUser = async(id) => {
-const response = await axios.get(`/api/users/${id}`)
-return response.data
-    }
-
-    handleNewPost = (event) => {
-        const attributeName = event.target.name
-        const attributeValue = event.target.value
-
-        const newUser = {...this.state.newUser}
-        newUser[attributeName] = attributeValue
-
-        this.setState({ newUser })
+    handleNewUser = (event) => {
+      let user = {...this.state.newUser}
+      user[event.target.name] = event.target.value
+      console.log(user)
+      this.setState({ newUser: user })
     }
 
     addNewUser = async (event) => {
-        const user = this.state.user
-        event.preventDefault()
+      event.preventDefault()
+      // const newUser = this.state.newUser
         const response = await axios.post(`/api/users`, this.state.newUser)
-        // const posts = [...this.state.posts]
-        user.push(response.data)
-        // this.setState({ posts })
+        // console.log(response)
+        const newUser = [this.state.newUser]
+        newUser.push(response.data)
+        this.setState({ newUser })
+        this.setState ({redirect: true })
 
     }
     render() {
+
+      if (this.state.redirect) {
+        return <Redirect to={`/users`} />
+      }
 
         return(
           
@@ -62,7 +59,7 @@ return response.data
           <br></br>
           <div><input name="insurance" type="text" placeholder="Insurance" onChange={this.handleNewUser} /></div>
           <br></br>
-          <div><input type="submit" value="Add New User" onClick={this.addNewUser} /></div>
+          <div><input type="submit" value="Add New User" onClick={this.addNewUser} /> </div>
         </form>
       </FormDiv>
   

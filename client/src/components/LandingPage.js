@@ -4,7 +4,8 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div>
-        "Sign In"
+       <button>"Sign In</button> 
+       <button>"Create Account"</button>
       </div>
     )
   }

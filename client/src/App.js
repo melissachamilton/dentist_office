@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SingleUser from './components/SingleUser';
 import LandingPage from './components/LandingPage';
 import NewUser from './components/NewUser';
+import PatientPortal from './components/PatientPortal';
 
 class App extends Component {
   render() {
@@ -10,7 +11,8 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/users" component={NewUser} />
+          <Route exact path='/users' component={PatientPortal} />
+          <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/users/:id" component={SingleUser} />
         </Switch>
       </Router>
