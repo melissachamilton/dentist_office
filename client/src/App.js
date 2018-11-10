@@ -11,9 +11,9 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path='/users' component={PatientPortal} />
+          <Route exact path='/users/:id' component={PatientPortal} />
           <Route exact path="/users/new" component={NewUser} />
-          <Route exact path="/users/:id" component={SingleUser} />
+          {/* <Route exact path="/users/:id" component={SingleUser} /> */}
         </Switch>
       </Router>
     );

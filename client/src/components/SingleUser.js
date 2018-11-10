@@ -1,7 +1,24 @@
 import React, { Component, } from 'react'
+import styled from 'styled-components'
 import {Link} from 'react-router-dom' 
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+
+const CardDiv = styled.div`
+  height: 150px;
+  padding: 3%;
+  width: 450px;
+  text-align: center;
+  margin: 5%;
+  img {
+    opacity: 0.6;
+  }
+  img:hover {
+   opacity: 1;
+ }
+ border-style: solid;
+ border-radius: 30px;
+`;
 
 
 export default class SingleUser extends Component {
@@ -34,7 +51,6 @@ export default class SingleUser extends Component {
 
   deleteUser = async () => {
       const response = await axios.delete(`/api/users/${this.state.user.id}`)
-      console.log(response)
       return response.data
   }
 
@@ -42,27 +58,51 @@ export default class SingleUser extends Component {
 
     const username = this.state.user
     const appointments = this.state.appointments.map((appointments, i) => {
+      
+      
 
-      return (
-        <div key={i}>
+      return  (
+        <CardDiv>
+                   <div key={i} className="row">
+                     <div className="col s12 m7">
+                       <div className="card">
+                         <div className="card-image">
+                          
+                           
+                          
+                         </div>
+                         <div className="card-content">
+                         <h1>{appointments.date}</h1>
+                         <h1>{appointments.time}</h1>
+                         <h1>{appointments.service}</h1></div>
+                         {/* <h2>{username.first_name}</h2></div> */}
+                         <div className="card-action">
+                           
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                 </CardDiv>
+  
+      //   <div key={i}>
 
-       <div> {appointments.date}</div>
-       {/* <Link to={`/users/:id`}> <h1>Destroy</h1></Link> */}
-       <div>{username.first_name}</div>
+      //  <div> {appointments.date}</div>
+      //  {/* <Link to={`/users/:id`}> <h1>Destroy</h1></Link> */}
+      //  <div>{username.first_name}</div>
 
-       {/* <%= link_to 'Patient Portal', patient_path(@user) %> */}
+      //  {/* <%= link_to 'Patient Portal', patient_path(@user) %> */}
 
-       {/* <Link to={`/users`}> <h1>Delete</h1></Link> */}
-       
-       </div>
+      //  {/* <Link to={`/users`}> <h1>Delete</h1></Link> */}
+      //  </div>
       )
 })
       
     return (
 <div>
+  <h1>{username.first_name}'s' Upcoming Appointments</h1>
       {appointments}
       <form>
-      <div><input type="submit" value="Delete User" onClick={this.deleteUser } /> </div>
+      <div><input type="submit" value="Delete Appointment" onClick={this.deleteUser } /> </div>
       </form>
         </div>
     )
