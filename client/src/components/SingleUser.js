@@ -73,12 +73,17 @@ export default class SingleUser extends Component {
 
       return  (
         <div>
-        Welcome {username.first_name}
         
           <div key={i}></div>
     
       
         {appointments.date}
+        
+  
+     
+    
+  
+
         
 
          
@@ -89,8 +94,30 @@ export default class SingleUser extends Component {
       
     return (
       <div>
-  
-        {appointments}
+Welcome {username.first_name}
+      
+      <Modal trigger={<Button>Appointments</Button>} centered={false}>
+    <Modal.Header>Upcoming Appointments</Modal.Header>
+    <Modal.Content image>
+      
+      <Modal.Description>
+        <p>{appointments}</p>
+      </Modal.Description>
+    </Modal.Content>
+  </Modal>
+
+   <Modal trigger={<Button>Billing</Button>} centered={false}>
+    <Modal.Header>Upcoming Appointments</Modal.Header>
+    <Modal.Content image>
+      
+      <Modal.Description>
+        <p>{appointments}</p>
+      </Modal.Description>
+    </Modal.Content>
+  </Modal>
+      
+      
+
         
       </div>
     )
