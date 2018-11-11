@@ -55,31 +55,31 @@ export default class PatientPortal extends Component {
     // const appointments = this.state.appointments.map((appointments, i) => {
 
     return (
-//       <div>
-// <div key={i}>
+      <div>
+{/* // <div key={i}>
 //        <div> {appointments.date}</div>
 //        <div>{username.first_name}</div>
 //         </div>
-//       <NavBarComponent>
+      // <NavBarComponent>
         "Patient Portal"
-        
+         */}
         // {/* <div className="four ui buttons">
       
-//   <button className="ui button"> Appointments</button>
-//   <button className="ui button">Billing</button>
-//   <button className="ui button">Payments</button>
-//   <button className="ui button">Account Changes</button>
-//   </div>
+  <button className="ui button"> Appointments</button>
+  <button className="ui button">Billing</button>
+  <button className="ui button">Payments</button>
+  <button className="ui button">Account Changes</button>
  
-// </NavBarComponent> 
+ 
+</NavBarComponent> 
 
-// </div> */}
+</div>
     
     )
     return ( "2nd Return"
   //     <div>
   // {/* <h1>{username.first_name}'s' Upcoming Appointments</h1> */}
-  //     {username.first_name}'s {appointments}
+  {/* //     {username.first_name}'s {appointments} */}
   //     <form>
   //     <div><input type="submit" value="Delete Appointment" onClick={this.deleteUser } /> </div>
   //     </form>

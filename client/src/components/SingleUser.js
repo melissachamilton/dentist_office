@@ -1,8 +1,11 @@
 import React, { Component, } from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom' 
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import Appointments from './Appointments';
+import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
 
 const NavBarComponent = styled.div`
 color: white;
@@ -70,67 +73,26 @@ export default class SingleUser extends Component {
 
       return  (
         <div>
-          <div class='ui fluid container'>
-    <h2 class='ui header'>Patient Portal</h2>
-    <p>
-      Welcome {username.first_name}
-    </p>
-    <button class='ui fluid button' role='button'>
-  Appointments
-</button>
-<button class='ui fluid button' role='button'>
-  Payment
-</button>
-<button class='ui fluid button' role='button'>
-  Account Billing
-</button>
-<button class='ui fluid button' role='button'>
-  Account Changes
-</button>
-  </div>
-
+        Welcome {username.first_name}
+        
+          <div key={i}></div>
+    
+      
+        {appointments.date}
         
 
-          {/* <NavBarComponent>
-<h1>Welcome {username.first_name}</h1>
-
-</NavBarComponent> */}
-
-        <CardDiv>
-                   <div key={i} className="row">
-                     <div className="col s12 m7">
-                       <div className="card">
-                         <div className="card-image">
-                          
-                           
-                          
-                         </div>
-                         <div className="card-content">
-                         <h1>{appointments.date}</h1>
-                         <h1>{appointments.time}</h1>
-                         <h1>{appointments.service}</h1></div>
-                         {/* <h2>{username.first_name}</h2></div> */}
-                         <div className="card-action">
-                           
-                         </div>
-                       </div>
-                     </div>
-                   </div>
-                 </CardDiv>
-
+         
 </div>
 
       )
 })
       
     return (
-<div>
-
-      {appointments}
-      <form>
-      <div><input type="submit" value="Delete Appointment" onClick={this.deleteUser } /> </div>
-      </form>
-        </div>
+      <div>
+  
+        {appointments}
+        
+      </div>
     )
   }
 }
