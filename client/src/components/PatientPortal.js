@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
 import axios from 'axios'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import SingleUser from './SingleUser';
+import React, { Component } from 'react'
 
 const NavBarComponent = styled.div`
 color: white;
@@ -53,42 +51,39 @@ export default class PatientPortal extends Component {
     return response.data
   }
   render() {
-    const username = this.state.user
-    const appointments = this.state.appointments.map((appointments, i) => {
+    // const username = this.state.user
+    // const appointments = this.state.appointments.map((appointments, i) => {
 
     return (
-      <div>
-<div key={i}>
-       <div> {appointments.date}</div>
-       <div>{username.first_name}</div>
-        </div>
-      <NavBarComponent>
-        <h1>Patient Portal</h1>
+//       <div>
+// <div key={i}>
+//        <div> {appointments.date}</div>
+//        <div>{username.first_name}</div>
+//         </div>
+//       <NavBarComponent>
+        "Patient Portal"
         
-        <div className="four ui buttons">
+        // {/* <div className="four ui buttons">
       
-  <Link to ="/users/:id"><button className="ui button"> Appointments</button> </Link>
-  <button className="ui button">Billing</button>
-  <button className="ui button">Payments</button>
-  <button className="ui button">Account Changes</button>
-  </div>
+//   <button className="ui button"> Appointments</button>
+//   <button className="ui button">Billing</button>
+//   <button className="ui button">Payments</button>
+//   <button className="ui button">Account Changes</button>
+//   </div>
  
-</NavBarComponent> 
+// </NavBarComponent> 
 
-</div>
+// </div> */}
     
-
-
     )
-    })
-    return (
-      <div>
-  {/* <h1>{username.first_name}'s' Upcoming Appointments</h1> */}
-      {username.first_name}'s {appointments}
-      <form>
-      <div><input type="submit" value="Delete Appointment" onClick={this.deleteUser } /> </div>
-      </form>
-        </div>
+    return ( "2nd Return"
+  //     <div>
+  // {/* <h1>{username.first_name}'s' Upcoming Appointments</h1> */}
+  //     {username.first_name}'s {appointments}
+  //     <form>
+  //     <div><input type="submit" value="Delete Appointment" onClick={this.deleteUser } /> </div>
+  //     </form>
+  //       </div>
     )
   }
     }

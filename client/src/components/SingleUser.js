@@ -4,12 +4,19 @@ import {Link} from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
+const NavBarComponent = styled.div`
+color: white;
+background-color: rgb(0, 100, 150);
+display: flex;
+height: 100%;
+width: 100%;
+`
 const CardDiv = styled.div`
   height: 150px;
   padding: 3%;
   width: 450px;
   text-align: center;
-  margin: 5%;
+  margin: 5%
   img {
     opacity: 0.6;
   }
@@ -62,6 +69,33 @@ export default class SingleUser extends Component {
       
 
       return  (
+        <div>
+          <div class='ui fluid container'>
+    <h2 class='ui header'>Patient Portal</h2>
+    <p>
+      Welcome {username.first_name}
+    </p>
+    <button class='ui fluid button' role='button'>
+  Appointments
+</button>
+<button class='ui fluid button' role='button'>
+  Payment
+</button>
+<button class='ui fluid button' role='button'>
+  Account Billing
+</button>
+<button class='ui fluid button' role='button'>
+  Account Changes
+</button>
+  </div>
+
+        
+
+          {/* <NavBarComponent>
+<h1>Welcome {username.first_name}</h1>
+
+</NavBarComponent> */}
+
         <CardDiv>
                    <div key={i} className="row">
                      <div className="col s12 m7">
@@ -83,23 +117,15 @@ export default class SingleUser extends Component {
                      </div>
                    </div>
                  </CardDiv>
-  
-      //   <div key={i}>
 
-      //  <div> {appointments.date}</div>
-      //  {/* <Link to={`/users/:id`}> <h1>Destroy</h1></Link> */}
-      //  <div>{username.first_name}</div>
+</div>
 
-      //  {/* <%= link_to 'Patient Portal', patient_path(@user) %> */}
-
-      //  {/* <Link to={`/users`}> <h1>Delete</h1></Link> */}
-      //  </div>
       )
 })
       
     return (
 <div>
-  <h1>{username.first_name}'s' Upcoming Appointments</h1>
+
       {appointments}
       <form>
       <div><input type="submit" value="Delete Appointment" onClick={this.deleteUser } /> </div>

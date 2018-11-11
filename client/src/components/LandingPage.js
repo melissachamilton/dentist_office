@@ -25,7 +25,7 @@ export default class LandingPage extends Component {
       
     return (
 <div key={i}>
-<Link to = {`/api/users/${users.id}`} >{users.first_name} {users.last_name}
+<Link to = {`/users/${users.id}`} >{users.first_name} {users.last_name}
 </Link>
 </div>
     
