@@ -83,7 +83,10 @@ Welcome {users.first_name}
 <Link to = {`/users/${users.id}/appointments`} > Appointments
 </Link>
 </div>
-<div>Billing</div>
+<div>
+<Link to = {`/users/${users.id}/billing`} > Billing
+</Link>
+</div>
 <div>Account Changes</div>
 
         

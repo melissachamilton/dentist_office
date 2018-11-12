@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage';
 import NewUser from './components/NewUser';
 import PatientPortal from './components/PatientPortal';
 import Appointments from './components/Appointments';
+import Billing from './components/Billing';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/users/:id" component={SingleUser} />
           <Route exact path="/users/:id/appointments" component={Appointments} />
+          <Route exact path="/users/:id/billing"component={Billing} />
         </Switch>
       </Router>
     );
