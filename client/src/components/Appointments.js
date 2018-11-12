@@ -25,16 +25,14 @@ export default class Appointments extends Component {
   state = {
     user: {},
     appointments: [],
-    redirect: false
   }
 
   async componentDidMount() {
     const userId = this.props.match.params.id
     const user = await this.fetchUsers(userId)
     const appointments = await this.fetchAppointments(userId)
-
     this.setState({ user, appointments })
-
+    
   }
 
   fetchUsers = async (id) => {
@@ -52,21 +50,24 @@ export default class Appointments extends Component {
 
   deleteAppointment = async () => {
       const response = await axios.delete(`/api/users/${this.state.user.id}/appointments`)
-      return response.data
-      this.setState ({redirect: true })
+      console.log("delete", response)
+      return response
+      
   }
 
   render() {
+    
 
-    const username = this.state.user
+    const users = this.state.user
     const appointments = this.state.appointments.map((appointments, i) => {
       
-      if (this.state.redirect) {
-        return <Redirect to={`/users`} />
-      }
-
+      
+      
+        
       return  (
+        
        <div>
+         
         <CardDiv>
                    <div key={i} className="row">
                      <div className="col s12 m7">
@@ -80,7 +81,7 @@ export default class Appointments extends Component {
                          <h1>{appointments.date}</h1>
                          <h1>{appointments.time}</h1>
                          <h1>{appointments.service}</h1></div>
-                         {/* <h2>{username.first_name}</h2></div> */}
+                         
                          <div className="card-action">
                            
                          </div>
@@ -88,20 +89,38 @@ export default class Appointments extends Component {
                      </div>
                    </div>
                  </CardDiv>
+                 
+                
 
 </div>
 
       )
+        
+    
+    
 })
+
+
+ 
+  
       
     return (
 <div>
 
       {appointments}
-      <form>
+
+      <Link to = {`/users/${users.id}`} > <input type = 'submit' value = 'Delete Appointment' onClick={this.deleteAppointment} />
+</Link>
+      
+      {/* <form>
       <div><input type="submit" value="Delete Appointment" onClick={this.deleteAppointment } /> </div>
-      </form>
+    
+
+      </form> */}
         </div>
+  
     )
   }
-}
+  }
+
+

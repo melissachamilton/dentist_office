@@ -24,18 +24,30 @@ export default class LandingPage extends Component {
   
       
     return (
+      <div>
+
+      
+
 <div key={i}>
 <Link to = {`/users/${users.id}`} >{users.first_name} {users.last_name}
 </Link>
+</div>
+
+
+
 </div>
     
      )
     }) 
 
     return(
-      allUsers 
+      <div>
+      {allUsers} 
+
+      <Link to = {`/users/new`} >Create an account
+</Link>
+</div>
     )
-// allUsers.first_name
    
     } 
   }
