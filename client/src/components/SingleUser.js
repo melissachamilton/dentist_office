@@ -33,16 +33,15 @@ const CardDiv = styled.div`
 
 export default class SingleUser extends Component {
   state = {
-    user: {},
-    appointments: [],
+    user: {}
   }
 
   async componentDidMount() {
     const userId = this.props.match.params.id
     const user = await this.fetchUsers(userId)
-    const appointments = await this.fetchAppointments(userId)
+    // const appointments = await this.fetchAppointments(userId)
 
-    this.setState({ user, appointments })
+    this.setState({ user })
 
   }
 
@@ -53,31 +52,40 @@ export default class SingleUser extends Component {
     
 
   }
-  fetchAppointments = async (id) => {
-    const response = await axios.get(`/api/users/${id}/appointments`)
-   console.log('fetchappointments', response)
-    return response.data
-  }
+  // fetchAppointments = async (id) => {
+  //   const response = await axios.get(`/api/users/${id}/appointments`)
+  //  console.log('fetchappointments', response)
+  //   return response.data
+  // }
 
-  deleteUser = async () => {
-      const response = await axios.delete(`/api/users/${this.state.user.id}`)
-      return response.data
-  }
+  // deleteUser = async () => {
+  //     const response = await axios.delete(`/api/users/${this.state.user.id}`)
+  //     return response.data
+  // }
 
   render() {
 
-    const username = this.state.user
-    const appointments = this.state.appointments.map((appointments, i) => {
+    const users = this.state.user
+    // const appointments = this.state.appointments.map((appointments, i) => {
       
       
 
       return  (
         <div>
         
-          <div key={i}></div>
+          {/* <div key={i}></div>
     
       
-        {appointments.date}
+        {appointments.date} */}
+Welcome {users.first_name}
+
+<div>
+<Link to = {`/users/${users.id}/appointments`} > Appointments
+</Link>
+</div>
+<div>Billing</div>
+<div>Account Changes</div>
+
         
   
      
@@ -90,31 +98,17 @@ export default class SingleUser extends Component {
 </div>
 
       )
-})
+
       
     return (
-      <div>
-Welcome {username.first_name}
-      
-      <Modal trigger={<Button>Appointments</Button>} centered={false}>
-    <Modal.Header>Upcoming Appointments</Modal.Header>
-    <Modal.Content image>
-      
-      <Modal.Description>
-        <p>{appointments}</p>
-      </Modal.Description>
-    </Modal.Content>
-  </Modal>
 
-   <Modal trigger={<Button>Billing</Button>} centered={false}>
-    <Modal.Header>Upcoming Appointments</Modal.Header>
-    <Modal.Content image>
       
-      <Modal.Description>
-        <p>{appointments}</p>
-      </Modal.Description>
-    </Modal.Content>
-  </Modal>
+      <div>
+Welcome {users.first_name}
+      
+      
+        {/* <p>{appointments}</p> */}
+      
       
       
 

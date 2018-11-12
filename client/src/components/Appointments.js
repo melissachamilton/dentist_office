@@ -25,6 +25,7 @@ export default class Appointments extends Component {
   state = {
     user: {},
     appointments: [],
+    redirect: false
   }
 
   async componentDidMount() {
@@ -49,9 +50,10 @@ export default class Appointments extends Component {
     return response.data
   }
 
-  deleteUser = async () => {
-      const response = await axios.delete(`/api/users/${this.state.user.id}`)
+  deleteAppointment = async () => {
+      const response = await axios.delete(`/api/users/${this.state.user.id}/appointments`)
       return response.data
+      this.setState ({redirect: true })
   }
 
   render() {
@@ -59,7 +61,9 @@ export default class Appointments extends Component {
     const username = this.state.user
     const appointments = this.state.appointments.map((appointments, i) => {
       
-      
+      if (this.state.redirect) {
+        return <Redirect to={`/users`} />
+      }
 
       return  (
        <div>
@@ -95,7 +99,7 @@ export default class Appointments extends Component {
 
       {appointments}
       <form>
-      <div><input type="submit" value="Delete Appointment" onClick={this.deleteUser } /> </div>
+      <div><input type="submit" value="Delete Appointment" onClick={this.deleteAppointment } /> </div>
       </form>
         </div>
     )

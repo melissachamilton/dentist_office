@@ -4,6 +4,7 @@ import SingleUser from './components/SingleUser';
 import LandingPage from './components/LandingPage';
 import NewUser from './components/NewUser';
 import PatientPortal from './components/PatientPortal';
+import Appointments from './components/Appointments';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
           {/* <Route exact path="/users/${users.id}" component={PatientPortal} /> */}
           <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/users/:id" component={SingleUser} />
+          <Route exact path="/users/:id/appointments" component={Appointments} />
         </Switch>
       </Router>
     );
