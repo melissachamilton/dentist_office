@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'billing/index'
   namespace :api do
     resources :users do
       resources :appointments do
