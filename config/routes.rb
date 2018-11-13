@@ -4,22 +4,21 @@ Rails.application.routes.draw do
   namespace :api do
     resources :users do
       resources :appointments do
-      resources :results
+        resources :results
       end
-end
+    end
   end
   
   namespace :api do
     resources :appointments do
       resources :providers 
-
+    end
   end
-end
 
-namespace :api do
-  resources :users do
-    resources :billing
+  namespace :api do
+    resources :users do
+      resources :billing
+    end
   end
-end
 
 end
