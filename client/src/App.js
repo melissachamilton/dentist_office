@@ -6,6 +6,7 @@ import NewUser from './components/NewUser';
 import Appointments from './components/Appointments';
 import Billing from './components/Billing';
 import NewAppointment from './components/NewAppointment';
+import AllUsers from './components/AllUsers';
 
 class App extends Component {
   render() {
@@ -13,7 +14,7 @@ class App extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/users" component={LandingPage} />
+          <Route exact path="/users" component={AllUsers} />
           <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/users/:id" component={SingleUser} />
           <Route exact path="/users/:id/appointments" component={Appointments} />

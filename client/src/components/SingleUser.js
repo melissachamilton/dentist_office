@@ -33,7 +33,8 @@ const CardDiv = styled.div`
 
 export default class SingleUser extends Component {
   state = {
-    user: {}
+    user: {}, 
+    redirect: false
   }
 
   async componentDidMount() {
@@ -49,9 +50,23 @@ export default class SingleUser extends Component {
     const response = await axios.get(`/api/users/${id}`)
     console.log('fetchusers', response)
     return response.data
-    
-
   }
+
+  deleteUser = async (id) => {
+    const response = await axios.delete(`/api/users/${this.state.user.id}`)
+    console.log("delete", response)
+    this.setState({redirect: true})
+    return response.data
+    
+   
+  }
+
+  render() {
+
+    if (this.state.redirect) {
+      return <Redirect to={`/users`} />
+    }
+
   // fetchAppointments = async (id) => {
   //   const response = await axios.get(`/api/users/${id}/appointments`)
   //  console.log('fetchappointments', response)
@@ -63,7 +78,7 @@ export default class SingleUser extends Component {
   //     return response.data
   // }
 
-  render() {
+ 
 
     const users = this.state.user
     // const appointments = this.state.appointments.map((appointments, i) => {
@@ -89,7 +104,9 @@ export default class SingleUser extends Component {
 <Link to = {`/users/${users.id}/billing`} > Billing
 </Link>
 </div>
-<div>Account Changes</div>
+<input type='submit' value='Delete Profile' onClick= {(e) => this.deleteUser(users.id)} />
+
+
 
         
   

@@ -14,25 +14,31 @@ width: 100%;
 border-style: solid;
   `
 
-const Footer  = styled.div`
-color: white;
-text-align: center;
-background-color: blue;
-height: 500%;
-width: 100%;
-border-style: solid;
-`
 
-const StyledLogo = styled.img`
-  height: 3%;
-  width: 100%;
-  align-content: right
+const UserCards = styled.div`
+  height: 40px;
+  padding: 10%;
+  width: 100px;
+  text-align: center;
+  margin: 15%;
+ border-style: solid;
+ border-radius: 150px;
+ display: flex;
 `;
 
+const StyledUsers = styled.div`
+height: 30%;
+width: 30%;
+display: flex;
+margin: 10%;
+border-spacing: equal
+`
+
+const BodyDiv = styled.div``;
 
 
 
-export default class LandingPage extends Component {
+export default class AllUsers extends Component {
   state = {
     users: []
   };
@@ -60,11 +66,22 @@ export default class LandingPage extends Component {
         
         {allUsers}
     
+      
+    
+      
+<div key={i}>
+<UserCards>
+{users.first_name} {users.last_name}
 
 <Link to = {`/users/${users.id}`} ><Button>Login
   </Button>
   
 </Link>
+
+</UserCards>
+</div>
+
+
 
 </div>
     
@@ -73,27 +90,25 @@ export default class LandingPage extends Component {
 
     return(
       
-     
+      <BodyDiv>
         <NavBar>
   
       <Header as='h1'>Quality Smiles Dentistry</Header>
   
-  <StyledLogo src="/images/logo.jpg"/>
-
- <Footer>
-
-  <Link to = {`/users/new`} ><Button>Create a New Account
-</Button>
-</Link>
-
-<Link to = {`/users`} ><Button>Login
-</Button>
-</Link>
-</Footer>
-
+  
+  
  </NavBar>
- 
+ <div>
+  {allUsers}
+    </div>
+      
+  
 
+      <Link to = {`/users/new`} ><Button>Create a New Account
+</Button>
+</Link>
+
+</BodyDiv>
     )
    
     } 

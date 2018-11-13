@@ -98,9 +98,10 @@ export default class Appointments extends Component {
         <Link to={`/users/${users.id}/appointments/new`}>
           <Button>New Appointment</Button>
         </Link>
-        <CardDiv>
+
+        
         <Link to={`/users/${users.id}`}>redirect</Link>
-        </CardDiv>
+        
         
       </div>
 
