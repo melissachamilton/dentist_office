@@ -8,6 +8,8 @@ The Dental Office app is designed as a means of reaching new and current custome
 https://trello.com/b/Al2jcgwH/dental-office
 https://rocky-springs-54135.herokuapp.com/users
 
+<h2>https://gq-dental-office.herokuapp.com/<h2>
+
 
 <h2>Technical Specifications</h2>
 This application has 3 models. 
