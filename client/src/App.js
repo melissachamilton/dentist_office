@@ -3,9 +3,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import SingleUser from './components/SingleUser';
 import LandingPage from './components/LandingPage';
 import NewUser from './components/NewUser';
-import PatientPortal from './components/PatientPortal';
 import Appointments from './components/Appointments';
 import Billing from './components/Billing';
+import NewAppointment from './components/NewAppointment';
 
 class App extends Component {
   render() {
@@ -17,6 +17,7 @@ class App extends Component {
           <Route exact path="/users/new" component={NewUser} />
           <Route exact path="/users/:id" component={SingleUser} />
           <Route exact path="/users/:id/appointments" component={Appointments} />
+          <Route exact path="/users/:id/appointments/new" component={NewAppointment} />
           <Route exact path="/users/:id/billing"component={Billing} />
         </Switch>
       </Router>

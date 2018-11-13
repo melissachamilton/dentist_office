@@ -1,8 +1,4 @@
-require 'HTTParty'
-require 'pp'
+require "stripe"
+Stripe.api_key = "sk_test_DuEv6rLjR1KDP2TA4yJdwDh8"
 
-response = HTTParty.get('https://catfact.ninja/facts?limit=10')
-
-pp response.code, response.message, response.headers.inspect
-
-pp response["data"]
+Stripe::Charge.retrieve({ :id => "ch_1DVi5jCcun972ItxhShlka5C", :expand => ['customer'] })

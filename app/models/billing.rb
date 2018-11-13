@@ -1,6 +1,6 @@
 class Billing < ApplicationRecord
     include HTTParty
-    base_uri 'http://swapi.co/api/people'
+    base_uri 'https://api.stripe.com'
   
     def self.generate(api_id)
       payment = find_by api_id: api_id

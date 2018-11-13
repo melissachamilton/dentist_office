@@ -5,15 +5,15 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import Appointments from './Appointments';
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react'
+import { Button, Header, Container, Icon, Image, Modal } from 'semantic-ui-react'
 
-const NavBarComponent = styled.div`
-color: white;
-background-color: rgb(0, 100, 150);
+const NavBar  = styled.div`
+  color: white;
+background-color: blue;
 display: flex;
 height: 100%;
-width: 100%;
-`
+width: 100%;`
+
 const CardDiv = styled.div`
   height: 150px;
   padding: 3%;
@@ -73,11 +73,13 @@ export default class SingleUser extends Component {
       return  (
         <div>
         
-          {/* <div key={i}></div>
+          <NavBar>
+          <Container fluid>
     
-      
-        {appointments.date} */}
-Welcome {users.first_name}
+    <Header as='h2'>Welcome {users.first_name}</Header>
+    
+  </Container>
+</NavBar>
 
 <div>
 <Link to = {`/users/${users.id}/appointments`} > Appointments

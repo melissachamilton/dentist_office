@@ -1,6 +1,47 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { Container, Header, Segment, Button, Menu, Grid, Icon,  } from 'semantic-ui-react'
+import styled from 'styled-components'
+
+
+const NavBar  = styled.div`
+  color: white;
+background-color: blue;
+display: flex;
+height: 100%;
+width: 100%;
+border-style: solid;
+  `
+
+const StyledLogo = styled.img`
+  height: 50%;
+  width: 50%;
+  align-content: right
+`;
+
+const UserCards = styled.div`
+  height: 40px;
+  padding: 10%;
+  width: 100px;
+  text-align: center;
+  margin: 15%;
+ border-style: solid;
+ border-radius: 150px;
+ display: flex;
+`;
+
+const StyledUsers = styled.div`
+height: 30%;
+width: 30%;
+display: flex;
+margin: 10%;
+border-spacing: equal
+`
+
+const BodyDiv = styled.div``;
+
+
 
 export default class LandingPage extends Component {
   state = {
@@ -19,18 +60,30 @@ export default class LandingPage extends Component {
 
 
   render() {
+   
+    
 
   const allUsers = this.state.users.map((users, i) => {
-  
       
     return (
       <div>
-
+       
+        
+        {allUsers}
+    
       
-
+    
+      
 <div key={i}>
-<Link to = {`/users/${users.id}`} >{users.first_name} {users.last_name}
+<UserCards>
+{users.first_name} {users.last_name}
+
+<Link to = {`/users/${users.id}`} ><Button>Login
+  </Button>
+  
 </Link>
+
+</UserCards>
 </div>
 
 
@@ -41,12 +94,27 @@ export default class LandingPage extends Component {
     }) 
 
     return(
-      <div>
-      {allUsers} 
+      
+      <BodyDiv>
+        <NavBar>
+  
+      <Header as='h1'>Quality Smiles Dentistry</Header>
+      
+    </NavBar>
+  
+  <StyledLogo src="/images/logo.jpg"/>
+ 
+ <div>
+  {allUsers}
+    </div>
+      
+  
 
-      <Link to = {`/users/new`} >Create an account
+      <Link to = {`/users/new`} ><Button>Create a New Account
+</Button>
 </Link>
-</div>
+
+</BodyDiv>
     )
    
     } 
