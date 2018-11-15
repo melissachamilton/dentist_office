@@ -70,8 +70,6 @@ export default class Appointments extends Component {
     console.log("delete", response)
     this.setState({redirect: true})
     return response.data
-
-
   }
 
   render() {
@@ -79,7 +77,6 @@ export default class Appointments extends Component {
     if (this.state.redirect) {
       return <Redirect to={`/users/${this.state.user.id}`} />
     }
-
 
     const users = this.state.user
     const appointments = this.state.appointments.map((appointment, i) => {
@@ -105,9 +102,7 @@ export default class Appointments extends Component {
         {appointments}
         <Link to={`/users/${users.id}/appointments/new`}>
           <Button>New Appointment</Button>
-        </Link>
-        
-        
+        </Link> 
       </div>
 
     )

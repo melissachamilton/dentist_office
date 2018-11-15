@@ -1,11 +1,9 @@
 import React, { Component, } from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom' 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
-import Appointments from './Appointments';
-import { Button, Header, Container, Icon, Image, Modal } from 'semantic-ui-react'
+import { Header, Container } from 'semantic-ui-react'
 
 const NavBar  = styled.div`
   color: white;
@@ -30,7 +28,6 @@ const CardDiv = styled.div`
  border-radius: 30px;
 `;
 
-
 export default class SingleUser extends Component {
   state = {
     user: {}, 
@@ -40,10 +37,7 @@ export default class SingleUser extends Component {
   async componentDidMount() {
     const userId = this.props.match.params.id
     const user = await this.fetchUsers(userId)
-    // const appointments = await this.fetchAppointments(userId)
-
     this.setState({ user })
-
   }
 
   fetchUsers = async (id) => {
@@ -57,42 +51,19 @@ export default class SingleUser extends Component {
     console.log("delete", response)
     this.setState({redirect: true})
     return response.data
-    
-   
   }
 
   render() {
-
     if (this.state.redirect) {
       return <Redirect to={`/users`} />
     }
 
-  // fetchAppointments = async (id) => {
-  //   const response = await axios.get(`/api/users/${id}/appointments`)
-  //  console.log('fetchappointments', response)
-  //   return response.data
-  // }
-
-  // deleteUser = async () => {
-  //     const response = await axios.delete(`/api/users/${this.state.user.id}`)
-  //     return response.data
-  // }
-
- 
-
     const users = this.state.user
-    // const appointments = this.state.appointments.map((appointments, i) => {
-      
-      
-
       return  (
         <div>
-        
           <NavBar>
           <Container fluid>
-    
     <Header as='h2'>Welcome {users.first_name}</Header>
-    
   </Container>
 </NavBar>
 
@@ -104,37 +75,12 @@ export default class SingleUser extends Component {
 <Link to = {`/users/${users.id}/billing`} > Billing
 </Link>
 </div>
-<input type='submit' value='Delete Profile' onClick= {(e) => this.deleteUser(users.id)} />
-
-
-
-        
-  
-     
-    
-  
-
-        
-
-         
+<input type='submit' value='Delete Profile' onClick= {(e) => this.deleteUser(users.id)} />         
 </div>
-
-      )
-
-      
-    return (
-
-      
+    )   
+    return (    
       <div>
 Welcome {users.first_name}
-      
-      
-        {/* <p>{appointments}</p> */}
-      
-      
-      
-
-        
       </div>
     )
   }

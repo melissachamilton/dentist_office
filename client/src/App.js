@@ -4,7 +4,6 @@ import SingleUser from './components/SingleUser';
 import LandingPage from './components/LandingPage';
 import NewUser from './components/NewUser';
 import Appointments from './components/Appointments';
-import Billing from './components/Billing';
 import NewAppointment from './components/NewAppointment';
 import AllUsers from './components/AllUsers';
 
@@ -19,7 +18,6 @@ class App extends Component {
           <Route exact path="/users/:id" component={SingleUser} />
           <Route exact path="/users/:id/appointments" component={Appointments} />
           <Route exact path="/users/:id/appointments/new" component={NewAppointment} />
-          <Route exact path="/users/:id/billing"component={Billing} />
         </Switch>
       </Router>
     );

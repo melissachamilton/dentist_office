@@ -9,8 +9,6 @@ margin: 15% 0% 0% 40%;
 flex-wrap: wrap;
 flex-direction: column;
 `
-
-
 export default class NewUser extends Component {
     state = {
         newUser: {

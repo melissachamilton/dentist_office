@@ -6,7 +6,6 @@ The Dental Office app is designed as a means of reaching new and current custome
 
 <h2>Project Links</h2>
 https://trello.com/b/Al2jcgwH/dental-office
-https://rocky-springs-54135.herokuapp.com/users
 
 <h2>https://gq-dental-office.herokuapp.com/<h2>
 
@@ -25,9 +24,11 @@ Ruby</ul>
 
 <h2>Wireframe</h2>
 
-![Wireframe](./public/images/Wireframe.jpg)
+![Wireframe](./client/public/images/Wireframe.jpg)
 
-![ERD](./public/images/ERD.jpg)
+<h2>ERD</h2>
+
+![ERD](./client/public/images/ERD.jpg)
 
 <h2>Next Release</h2>
 <ul>Design</ul>

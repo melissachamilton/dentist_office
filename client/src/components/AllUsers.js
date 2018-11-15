@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import { Container, Header, Segment, Button, Menu, Grid, Icon,  } from 'semantic-ui-react'
+import { Header, Button } from 'semantic-ui-react'
 import styled from 'styled-components'
 
 
@@ -13,7 +13,6 @@ height: 500%;
 width: 100%;
 border-style: solid;
   `
-
 
 const UserCards = styled.div`
   height: 40px;
@@ -36,8 +35,6 @@ border-spacing: equal
 
 const BodyDiv = styled.div``;
 
-
-
 export default class AllUsers extends Component {
   state = {
     users: []
@@ -53,36 +50,24 @@ export default class AllUsers extends Component {
     this.setState ({users: response.data})
   };
 
-
   render() {
    
-    
-
   const allUsers = this.state.users.map((users, i) => {
       
     return (
-      <div>
-       
-        
-        {allUsers}
-    
-      
-    
+      <div> 
+        {allUsers} 
       
 <div key={i}>
 <UserCards>
 {users.first_name} {users.last_name}
 
 <Link to = {`/users/${users.id}`} ><Button>Login
-  </Button>
-  
+  </Button> 
 </Link>
 
 </UserCards>
 </div>
-
-
-
 </div>
     
      )
@@ -91,25 +76,20 @@ export default class AllUsers extends Component {
     return(
       
       <BodyDiv>
+
         <NavBar>
-  
       <Header as='h1'>Quality Smiles Dentistry</Header>
-  
-  
-  
  </NavBar>
+
  <div>
   {allUsers}
     </div>
       
-  
-
       <Link to = {`/users/new`} ><Button>Create a New Account
 </Button>
 </Link>
 
 </BodyDiv>
     )
-   
     } 
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import { Container, Header, Segment, Button, Menu, Grid, Icon,  } from 'semantic-ui-react'
+import { Header, Button } from 'semantic-ui-react'
 import styled from 'styled-components'
 
 
@@ -30,8 +30,6 @@ const StyledLogo = styled.img`
 `;
 
 
-
-
 export default class LandingPage extends Component {
   state = {
     users: []
@@ -49,21 +47,13 @@ export default class LandingPage extends Component {
 
 
   render() {
-   
-    
-
   const allUsers = this.state.users.map((users, i) => {
       
     return (
-      <div>
-       
-        
+      <div>    
         {allUsers}
-    
-
 <Link to = {`/users/${users.id}`} ><Button>Login
-  </Button>
-  
+  </Button> 
 </Link>
 
 </div>
@@ -72,16 +62,10 @@ export default class LandingPage extends Component {
     }) 
 
     return(
-      
-     
         <NavBar>
-  
       <Header as='h1'>Quality Smiles Dentistry</Header>
-  
   <StyledLogo src="/images/logo.jpg"/>
-
  <Footer>
-
   <Link to = {`/users/new`} ><Button>Create a New Account
 </Button>
 </Link>
@@ -89,11 +73,10 @@ export default class LandingPage extends Component {
 <Link to = {`/users`} ><Button>Login
 </Button>
 </Link>
+
 </Footer>
 
  </NavBar>
- 
-
     )
    
     } 
